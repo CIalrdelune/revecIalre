@@ -2273,7 +2273,7 @@ const defaultNotes = [
 let notesData = [];
 
 try {
-  const stored = localStorage.getItem("iphoneNotesV2");
+  const stored = localStorage.getItem("iphoneNotesV3");
   notesData = stored ? JSON.parse(stored) : defaultNotes;
   if (!Array.isArray(notesData)) notesData = defaultNotes;
 } catch {
@@ -2284,7 +2284,7 @@ let currentNoteId = null;
 
 function persistNotes() {
   try {
-    localStorage.setItem("iphoneNotesV2", JSON.stringify(notesData));
+    localStorage.setItem("iphoneNotesV3", JSON.stringify(notesData));
   } catch {
     // 저장이 제한된 환경에서는 화면 안에서만 유지
   }
