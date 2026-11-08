@@ -1150,6 +1150,219 @@ body {
 #home .reminder-sub {
   font-size: 11px;
 }
+
+
+/* 아이폰 메모 앱 */
+
+.notes-screen {
+  background: #f2f2f7;
+  color: #111;
+}
+
+#notes-app .status {
+  color: #111;
+}
+
+#notes-app .battery {
+  background: #111;
+}
+
+#notes-app .battery span {
+  color: white;
+}
+
+#notes-app .kakao-homebar {
+  background: #111;
+}
+
+/* 상단 메뉴 */
+
+.notes-toolbar,
+.notes-detail-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  height: 70px;
+}
+
+.notes-toolbar button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: #ffffffa8;
+  color: #111;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.notes-detail-toolbar button {
+  background: none;
+  border: none;
+  color: #c99a15;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+/* 메모 목록 스크롤 */
+
+.notes-scroll {
+  position: absolute;
+  top: 142px;
+  bottom: 95px;
+  left: 0;
+  right: 0;
+  padding: 0 18px 30px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.notes-scroll h1 {
+  font-size: 36px;
+  margin: 5px 0 0;
+  font-weight: 800;
+}
+
+#notes-count {
+  color: #9999a1;
+  margin: 3px 0 24px;
+  font-size: 14px;
+}
+
+.notes-pinned {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 2px 24px;
+  font-size: 19px;
+}
+
+.notes-pinned span {
+  color: #d3ab27;
+  font-size: 25px;
+}
+
+/* 날짜별 그룹 */
+
+.notes-group {
+  margin: 18px 0 30px;
+}
+
+.notes-group h2 {
+  font-size: 21px;
+  margin: 0 0 12px;
+  font-weight: 750;
+}
+
+.notes-group-card {
+  background: white;
+  border-radius: 25px;
+  padding: 0 16px;
+  overflow: hidden;
+}
+
+.notes-item {
+  padding: 14px 4px;
+  cursor: pointer;
+  border-bottom: 1px solid #e5e5e8;
+}
+
+.notes-item:last-child {
+  border-bottom: none;
+}
+
+.notes-item-title {
+  font-size: 17px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notes-item-preview {
+  color: #929299;
+  font-size: 13px;
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 하단 검색 */
+
+.notes-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  height: 65px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f2f2f7ec;
+}
+
+.notes-search {
+  flex: 1;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 28px;
+  background: #e9e9ed;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 10px;
+}
+
+.notes-search span {
+  font-size: 27px;
+  color: #666;
+}
+
+.notes-search input {
+  min-width: 0;
+  width: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 17px;
+}
+
+.notes-create {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background: #e9e9ed;
+  font-size: 26px;
+  color: #111;
+  cursor: pointer;
+}
+
+/* 개별 메모 */
+
+#notes-detail-page {
+  height: calc(100% - 72px);
+}
+
+#notes-editor {
+  display: block;
+  width: 100%;
+  height: calc(100% - 100px);
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #111;
+}
+
   
 </style>
 </head>
@@ -1298,7 +1511,7 @@ body {
       카카오톡
     </div>
 
-    <div class="app">
+    <div class="app" onclick="showScreen('notes-app')">
       <div class="app-emoji memo-icon">
         <div></div><div></div><div></div>
       </div>
@@ -1638,6 +1851,68 @@ body {
 
 </section>
 
+
+<!-- 메모 앱 -->
+<section id="notes-app" class="screen notes-screen">
+
+  <div class="status"></div>
+  <div class="island"></div>
+
+  <!-- 메모 목록 화면 -->
+  <div id="notes-list-page">
+
+    <div class="notes-toolbar">
+      <button onclick="showScreen('home')" aria-label="홈으로">‹</button>
+      <button aria-label="메뉴">•••</button>
+    </div>
+
+    <div class="notes-scroll">
+      <h1>메모</h1>
+      <p id="notes-count">5개의 메모</p>
+
+      <div class="notes-pinned">
+        <b>고정된 메모</b>
+        <span>›</span>
+      </div>
+
+      <div id="notes-groups"></div>
+    </div>
+
+    <div class="notes-footer">
+      <div class="notes-search">
+        <span>⌕</span>
+        <input
+          id="notes-search-input"
+          placeholder="검색"
+          oninput="renderNotes()"
+        >
+      </div>
+      <button class="notes-create" onclick="newNote()">✎</button>
+    </div>
+
+  </div>
+
+  <!-- 개별 메모 화면 -->
+  <div id="notes-detail-page" style="display:none">
+
+    <div class="notes-detail-toolbar">
+      <button onclick="backToNotes()">‹ 메모</button>
+      <button onclick="backToNotes()">완료</button>
+    </div>
+
+    <textarea
+      id="notes-editor"
+      placeholder="메모 입력"
+      oninput="saveNote()"
+    ></textarea>
+
+  </div>
+
+  <div class="kakao-homebar"></div>
+
+</section>
+
+  
 <!-- 전화 앱 -->
 <section id="phone-app" class="screen phone-screen">
 
@@ -1949,6 +2224,239 @@ function filterCalls(type, button) {
     }
   });
 }
+
+
+/* 메모 앱 데이터와 기능 */
+
+// 오늘 기준 날짜 만들기
+function noteDate(daysAgo) {
+  const date = new Date();
+  date.setHours(12, 0, 0, 0);
+  date.setDate(date.getDate() - daysAgo);
+  return date.toISOString().slice(0, 10);
+}
+
+
+const defaultNotes = [
+  {
+    id: 114,
+    date: noteDate(0),
+    text: "오늘 할 일\n□ 안무 영상 다시 확인\n□ 서영이한테 연락\n□ 가사 수정본 전달\n□ 운동\n□ 저녁 7시 회의"
+  },
+  {
+    id: 113,
+    date: noteDate(0),
+    text: "장보기\n생수\n계란\n닭가슴살\n휴지\n커피\n세제\n\n냉장고에 뭐가 남아 있었더라."
+  },
+  {
+    id: 112,
+    date: noteDate(0),
+    text: "가사 메모\n새벽이 지나도 남아 있는 것\n익숙해진 목소리\n잊어버린 줄 알았던 계절\n\n후렴 다시 생각해 보기."
+  },
+  {
+    id: 111,
+    date: noteDate(1),
+    text: "연습 피드백\n2절 들어가기 직전 박자 확인\n마지막 후렴 호흡 조절\n동선 전환할 때 왼쪽 확인\n\n래빈이랑 다시 맞춰보기."
+  },
+  {
+    id: 110,
+    date: noteDate(1),
+    text: "선물 후보\n향수\n목도리\n책\n\n취향 물어보면 눈치챌 것 같은데.\n일단 좀 더 생각해 보자."
+  },
+  {
+    id: 109,
+    date: noteDate(2),
+    text: "비밀번호 힌트\n잊어버리지 말 것.\n\n중요한 날짜."
+  },
+  {
+    id: 108,
+    date: noteDate(4),
+    text: "테스타 회의\n다음 활동 콘셉트 정리\n개인 연습 일정 조율\n라이브 관련 의견 전달\n\n세진이 의견도 들어볼 것."
+  },
+  {
+    id: 107,
+    date: noteDate(6),
+    text: "읽을 책\n아직 다 못 읽은 책 마저 읽기\n추천받은 소설 찾아보기\n\n읽다가 괜찮은 문장 있으면 따로 적어두기."
+  },
+  {
+    id: 106,
+    date: noteDate(9),
+    text: "일정\n10:00 연습실\n13:30 녹음\n16:00 피팅\n19:00 저녁\n\n이동 시간 계산할 것."
+  },
+  {
+    id: 105,
+    date: noteDate(11),
+    text: "일본어\nお疲れ様です。\nよろしくお願いします。\nありがとうございます。\n\n발음 다시 확인."
+  },
+  {
+    id: 104,
+    date: noteDate(14),
+    text: "연락할 사람\n아현이\n유진이\n세진이 형\n\n확인할 일 있어서 연락하기."
+  },
+  {
+    id: 103,
+    date: noteDate(17),
+    text: "기억해 둘 것\n상대가 괜찮다고 했다고 해서 정말 괜찮은 건 아닐 수도 있다.\n\n말하기 전에 한 번 더 생각하기."
+  },
+  {
+    id: 102,
+    date: noteDate(20),
+    text: "카카오톡 오픈채팅을 시작해 보세요.\nhttps://typie.me/Eyqf3f"
+  },
+  {
+    id: 101,
+    date: noteDate(25),
+    text: "생각\n생각이 많아지는 날이 있다.\n\n굳이 지금 결론을 내릴 필요는 없을 것 같다.\n내일 다시 생각해 보자."
+  }
+];
+
+
+let notesData = [];
+
+try {
+  const stored = localStorage.getItem("iphoneNotesV2");
+  notesData = stored ? JSON.parse(stored) : defaultNotes;
+  if (!Array.isArray(notesData)) notesData = defaultNotes;
+} catch {
+  notesData = defaultNotes;
+}
+
+let currentNoteId = null;
+
+function persistNotes() {
+  try {
+    localStorage.setItem("iphoneNotesV2", JSON.stringify(notesData));
+  } catch {
+    // 저장이 제한된 환경에서는 화면 안에서만 유지
+  }
+}
+
+function renderNotes() {
+  const container = document.getElementById("notes-groups");
+  const query = document.getElementById("notes-search-input")
+    .value.trim().toLowerCase();
+
+  container.innerHTML = "";
+
+  document.getElementById("notes-count").textContent =
+    notesData.length + "개의 메모";
+
+  const today = noteDate(0);
+  const yesterday = noteDate(1);
+
+  const groups = {
+    "오늘": [],
+    "어제": [],
+    "이전 30일": [],
+    "그 이전": []
+  };
+
+  const sorted = [...notesData].sort(
+    (a, b) => b.id - a.id
+  );
+
+  sorted.forEach(note => {
+    if (!note.text.toLowerCase().includes(query)) return;
+
+    const title = note.text.split("\n")[0] || "새로운 메모";
+
+    if (note.date === today) {
+      groups["오늘"].push(note);
+    } else if (note.date === yesterday) {
+      groups["어제"].push(note);
+    } else if (note.date >= noteDate(30)) {
+      groups["이전 30일"].push(note);
+    } else {
+      groups["그 이전"].push(note);
+    }
+  });
+
+  Object.entries(groups).forEach(([name, notes]) => {
+    if (!notes.length) return;
+
+    const group = document.createElement("div");
+    group.className = "notes-group";
+
+    const heading = document.createElement("h2");
+    heading.textContent = name;
+    group.appendChild(heading);
+
+    const card = document.createElement("div");
+    card.className = "notes-group-card";
+
+    notes.forEach(note => {
+      const item = document.createElement("div");
+      item.className = "notes-item";
+
+      const title = document.createElement("div");
+      title.className = "notes-item-title";
+      title.textContent = note.text.split("\n")[0] || "새로운 메모";
+
+      const preview = document.createElement("div");
+      preview.className = "notes-item-preview";
+
+      const rest = note.text.split("\n").slice(1).join(" ");
+      preview.textContent = note.date + "  " + (rest || "추가 텍스트 없음");
+
+      item.appendChild(title);
+      item.appendChild(preview);
+      item.onclick = () => openNote(note.id);
+      card.appendChild(item);
+    });
+
+    group.appendChild(card);
+    container.appendChild(group);
+  });
+}
+
+function openNote(id) {
+  const note = notesData.find(n => n.id === id);
+  if (!note) return;
+
+  currentNoteId = id;
+
+  document.getElementById("notes-editor").value = note.text;
+  document.getElementById("notes-list-page").style.display = "none";
+  document.getElementById("notes-detail-page").style.display = "block";
+}
+
+function backToNotes() {
+  saveNote();
+
+  document.getElementById("notes-detail-page").style.display = "none";
+  document.getElementById("notes-list-page").style.display = "block";
+
+  currentNoteId = null;
+  renderNotes();
+}
+
+function newNote() {
+  const id = Date.now();
+
+  notesData.unshift({
+    id: id,
+    date: noteDate(0),
+    text: ""
+  });
+
+  persistNotes();
+  openNote(id);
+  document.getElementById("notes-editor").focus();
+}
+
+function saveNote() {
+  if (currentNoteId === null) return;
+
+  const note = notesData.find(n => n.id === currentNoteId);
+  if (!note) return;
+
+  note.text = document.getElementById("notes-editor").value;
+  persistNotes();
+}
+
+renderNotes();
+
+  
 </script>
 </body>
 </html>
