@@ -1363,6 +1363,280 @@ body {
   color: #111;
 }
 
+
+/* 사파리 앱 */
+
+.safari-screen {
+  background: white;
+  color: #111;
+}
+
+#safari-app .status {
+  color: #111;
+}
+
+#safari-app .battery {
+  background: #111;
+}
+
+#safari-app .battery span {
+  color: white;
+}
+
+#safari-app .kakao-homebar {
+  background: #111;
+}
+
+.safari-content {
+  position: absolute;
+  top: 72px;
+  bottom: 95px;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: white;
+  padding: 0 17px 25px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 구글 위쪽 메뉴 */
+
+.safari-google-top {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  height: 70px;
+  font-size: 14px;
+  color: #62656d;
+}
+
+.safari-google-top .selected {
+  color: #2563d9;
+  font-weight: 700;
+}
+
+.google-profile {
+  margin-left: auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e45a28;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Google 로고 */
+
+.safari-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 65px 0 30px;
+  font-family: Arial, sans-serif;
+  font-size: clamp(45px, 14vw, 64px);
+  font-weight: 500;
+  letter-spacing: -4px;
+  white-space: nowrap;
+}
+
+.safari-logo span:nth-child(1),
+.safari-logo span:nth-child(4) {
+  color: #4285f4;
+}
+
+.safari-logo span:nth-child(2),
+.safari-logo span:nth-child(6) {
+  color: #ea4335;
+}
+
+.safari-logo span:nth-child(3) {
+  color: #fbbc05;
+}
+
+.safari-logo span:nth-child(5) {
+  color: #34a853;
+}
+
+/* 검색창 */
+
+.safari-searchbox {
+  height: 54px;
+  border: 1px solid #dadce0;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 10px;
+  margin: 0 2px 15px;
+}
+
+.safari-search-icon {
+  font-size: 29px;
+  color: #9aa0a6;
+}
+
+.safari-searchbox input {
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #202124;
+  font-size: 16px;
+}
+
+.safari-searchbox button {
+  border: none;
+  background: transparent;
+  color: #4285f4;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* 검색어 입력 중 */
+
+.safari-screen.searching .safari-google-top,
+.safari-screen.searching .safari-logo {
+  display: none;
+}
+
+.safari-screen.searching .safari-searchbox {
+  margin-top: 15px;
+}
+
+/* 최근 검색어 */
+
+.safari-suggestion {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 8px;
+  font-size: 24px;
+  color: #9aa0a6;
+  cursor: pointer;
+}
+
+.safari-suggestion span {
+  color: #202124;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 결과 화면 */
+
+.safari-result-tabs {
+  display: flex;
+  gap: 25px;
+  border-bottom: 1px solid #eee;
+  padding: 14px 7px;
+  color: #666;
+  font-size: 14px;
+}
+
+.safari-result-tabs .selected {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.safari-result-caption {
+  color: #7a7a7a;
+  font-size: 12px;
+  margin: 20px 5px;
+}
+
+.safari-result-item {
+  padding: 13px 4px 22px;
+  border-bottom: 1px solid #ededed;
+}
+
+.safari-result-site {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 7px;
+}
+
+.safari-result-title {
+  display: block;
+  color: #1a0dab;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.safari-result-description {
+  color: #555;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.safari-real-link {
+  display: block;
+  text-align: center;
+  margin: 25px 4px;
+  padding: 15px;
+  border-radius: 25px;
+  background: #edf3ff;
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* 하단 주소창 */
+
+.safari-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 95px;
+  background: #f4f4f5ed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px 20px;
+}
+
+.safari-bottom button {
+  flex-shrink: 0;
+  width: 40px;
+  height: 45px;
+  border: none;
+  background: transparent;
+  color: #333;
+  font-size: 31px;
+  cursor: pointer;
+}
+
+.safari-address {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  border-radius: 30px;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.safari-address b {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
   
 </style>
 </head>
@@ -1572,7 +1846,7 @@ body {
   </div>
 
   <!-- 사파리 -->
-  <div class="app-emoji safari-icon">
+  <div class="app-emoji safari-icon" onclick="showScreen('safari-app')">
     <div class="compass">➤</div>
   </div>
 
@@ -1905,6 +2179,123 @@ body {
       placeholder="메모 입력"
       oninput="saveNote()"
     ></textarea>
+
+  </div>
+
+  <div class="kakao-homebar"></div>
+
+</section>
+
+
+<!-- 사파리 앱 -->
+<section id="safari-app" class="screen safari-screen">
+
+  <div class="status"></div>
+  <div class="island"></div>
+
+  <div class="safari-content">
+
+    <!-- 구글 홈 -->
+    <div id="safari-home">
+
+      <div class="safari-google-top">
+        <span class="selected">전체</span>
+        <span>이미지</span>
+        <span>⋮</span>
+        <span class="google-profile">문대</span>
+      </div>
+
+      <div class="safari-logo">
+        <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+      </div>
+
+    </div>
+
+    <!-- 검색창 -->
+    <form class="safari-searchbox" onsubmit="safariSearch(event)">
+      <span class="safari-search-icon">⌕</span>
+      <input
+        id="safari-input"
+        type="search"
+        placeholder="Google에 물어보세요"
+        autocomplete="off"
+        onfocus="safariFocus()"
+        oninput="safariUpdateSuggestions()"
+      >
+      <button type="submit" aria-label="검색">⌕</button>
+    </form>
+
+    <!-- 최근 검색어 -->
+    <div id="safari-suggestions" style="display:none">
+
+      <div class="safari-suggestion" onclick="safariPick('20대 여자친구 생일선물')">
+        ◷ <span>20대 여자친구 생일선물</span>
+      </div>
+
+      <div class="safari-suggestion" onclick="safariPick('향수 추천')">
+        ◷ <span>향수 추천</span>
+      </div>
+
+      <div class="safari-suggestion" onclick="safariPick('대학생 여자 선물')">
+        ◷ <span>대학생 여자 선물</span>
+      </div>
+
+      <div class="safari-suggestion" onclick="safariPick('여자친구 생일 데이트')">
+        ◷ <span>여자친구 생일 데이트</span>
+      </div>
+
+      <div class="safari-suggestion" onclick="safariPick('꽃다발 추천')">
+        ◷ <span>꽃다발 추천</span>
+      </div>
+
+      <div class="safari-suggestion" onclick="safariPick('여자친구 선물 10만원대')">
+        ◷ <span>여자친구 선물 10만원대</span>
+      </div>
+
+      <div class="safari-suggestion" onclick="safariPick('서울 분위기 좋은 레스토랑')">
+        ◷ <span>서울 분위기 좋은 레스토랑</span>
+      </div>
+
+    </div>
+
+    <!-- 검색 결과 -->
+    <div id="safari-results" style="display:none">
+
+      <div class="safari-result-tabs">
+        <span class="selected">전체</span>
+        <span>이미지</span>
+        <span>쇼핑</span>
+        <span>뉴스</span>
+      </div>
+
+      <p class="safari-result-caption">추천 검색 결과 · 예시 화면</p>
+
+      <div id="safari-result-list"></div>
+
+      <a
+        id="safari-real-search"
+        class="safari-real-link"
+        href="https://www.google.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Google에서 실제 검색 결과 보기 ↗</a>
+
+    </div>
+
+  </div>
+
+  <!-- 사파리 하단 주소창 -->
+  <div class="safari-bottom">
+
+    <button onclick="safariBack()" aria-label="뒤로">‹</button>
+
+    <div class="safari-address" onclick="safariShowHome()">
+      <span>▤</span>
+      <b id="safari-address-text">google.com</b>
+      <span>↻</span>
+    </div>
+
+    <button onclick="showScreen('home')" aria-label="홈으로">⌂</button>
 
   </div>
 
@@ -2414,6 +2805,148 @@ function saveNote() {
 }
 
 renderNotes();
+
+
+/* 사파리 검색 기능 */
+
+function safariFocus() {
+  document.getElementById("safari-app").classList.add("searching");
+
+  document.getElementById("safari-home").style.display = "block";
+
+  document.getElementById("safari-results").style.display = "none";
+
+  document.getElementById("safari-suggestions").style.display = "block";
+}
+
+function safariUpdateSuggestions() {
+  // 입력 중에도 최근 검색어 표시
+  document.getElementById("safari-suggestions").style.display = "block";
+}
+
+function safariPick(query) {
+  document.getElementById("safari-input").value = query;
+  safariSearch();
+}
+
+function safariShowHome() {
+  document.getElementById("safari-app").classList.remove("searching");
+
+  document.getElementById("safari-home").style.display = "block";
+  document.getElementById("safari-results").style.display = "none";
+  document.getElementById("safari-suggestions").style.display = "none";
+
+  document.getElementById("safari-input").value = "";
+  document.getElementById("safari-address-text").textContent = "google.com";
+
+  document.activeElement.blur();
+}
+
+function safariBack() {
+  const results = document.getElementById("safari-results");
+
+  if (results.style.display !== "none") {
+    safariShowHome();
+  } else {
+    showScreen("home");
+  }
+}
+
+function safariSearch(event) {
+  if (event) event.preventDefault();
+
+  const input = document.getElementById("safari-input");
+  const query = input.value.trim();
+
+  if (!query) return;
+
+  document.getElementById("safari-app").classList.add("searching");
+  document.getElementById("safari-home").style.display = "none";
+  document.getElementById("safari-suggestions").style.display = "none";
+  document.getElementById("safari-results").style.display = "block";
+
+  document.getElementById("safari-address-text").textContent = "google.com";
+
+  // 실제 구글 검색으로 이동하는 링크
+  document.getElementById("safari-real-search").href =
+    "https://www.google.com/search?q=" + encodeURIComponent(query);
+
+  const results = document.getElementById("safari-result-list");
+  results.innerHTML = "";
+
+  let items;
+
+  if (query.includes("향수")) {
+    items = [
+      ["20대 여성 향수 추천 BEST 10", "계절과 취향에 따라 고를 수 있는 향수 추천 목록입니다."],
+      ["은은한 비누향 향수 추천", "가볍고 깨끗한 향을 선호하는 사람에게 어울리는 향수들."],
+      ["여자친구 향수 선물 고르는 법", "평소 사용하는 향과 선호하는 브랜드를 확인해 보세요."],
+      ["선물하기 좋은 향수 브랜드", "디자인과 향, 가격대를 함께 비교해 보세요."],
+      ["향수 지속력과 종류 차이", "오드퍼퓸과 오드뚜왈렛의 차이를 알아보세요."]
+    ];
+  } else if (query.includes("데이트") || query.includes("레스토랑")) {
+    items = [
+      ["서울 기념일 데이트 코스 추천", "분위기 좋은 장소와 식사 코스를 알아보세요."],
+      ["기념일에 가기 좋은 레스토랑", "예약하기 좋은 식당과 분위기를 비교해 보세요."],
+      ["서울 야경 데이트 장소", "저녁 시간에 방문하기 좋은 데이트 장소입니다."],
+      ["커플 기념일 일정 짜는 법", "동선과 예산을 고려해서 하루 일정을 정리해 보세요."],
+      ["특별한 날을 위한 데이트 아이디어", "전시회와 식사, 산책을 결합한 데이트 코스."]
+    ];
+  } else if (query.includes("꽃")) {
+    items = [
+      ["생일 꽃다발 추천", "생일에 어울리는 꽃과 색상 조합을 알아보세요."],
+      ["여자친구에게 선물하기 좋은 꽃", "장미, 튤립 등 선물용 꽃의 특징을 비교합니다."],
+      ["꽃다발 색상별 분위기", "핑크, 화이트, 레드 계열 꽃다발의 차이를 살펴보세요."],
+      ["꽃 오래 보관하는 방법", "선물받은 꽃을 오래 유지하는 관리 방법."],
+      ["꽃다발과 함께 주기 좋은 선물", "카드나 작은 선물과 함께 준비하는 방법."]
+    ];
+  } else if (query.includes("선물") || query.includes("여자친구")) {
+    items = [
+      ["20대 여자친구 생일선물 추천 TOP 10", "액세서리, 향수, 소품 등 선물 아이디어를 비교해 보세요."],
+      ["여자친구 생일선물 가격대별 추천", "5만원대부터 20만원대까지 예산에 맞는 선물을 알아보세요."],
+      ["대학생 여자친구 선물 추천", "일상에서 활용하기 좋은 선물들을 정리했습니다."],
+      ["생일 선물 고를 때 고려할 점", "상대방의 취향과 평소 관심사를 바탕으로 선택해 보세요."],
+      ["기념일에 주기 좋은 특별한 선물", "직접 준비하는 선물과 실용적인 선물의 차이를 비교해 보세요."]
+    ];
+  } else {
+    items = [
+      [query + " 추천 정보", "검색어와 관련된 정보를 살펴보세요."],
+      [query + " 알아보기", "기본 정보와 참고할 만한 내용을 확인해 보세요."],
+      [query + " 정리", "주요 내용을 한눈에 확인할 수 있는 검색 주제입니다."],
+      [query + " 관련 질문", "사람들이 궁금해하는 관련 질문들을 확인해 보세요."],
+      [query + " 최신 정보", "실제 최신 정보는 구글 검색을 통해 확인할 수 있습니다."]
+    ];
+  }
+
+  items.forEach((item, index) => {
+    const box = document.createElement("div");
+    box.className = "safari-result-item";
+
+    const site = document.createElement("span");
+    site.className = "safari-result-site";
+    site.textContent = "추천 검색 주제 " + (index + 1);
+
+    const title = document.createElement("a");
+    title.className = "safari-result-title";
+    title.textContent = item[0];
+    title.href = "https://www.google.com/search?q=" +
+      encodeURIComponent(item[0]);
+    title.target = "_blank";
+    title.rel = "noopener noreferrer";
+
+    const description = document.createElement("p");
+    description.className = "safari-result-description";
+    description.textContent = item[1];
+
+    box.appendChild(site);
+    box.appendChild(title);
+    box.appendChild(description);
+    results.appendChild(box);
+  });
+
+  input.blur();
+  document.querySelector(".safari-content").scrollTop = 0;
+}
 
   
 </script>
